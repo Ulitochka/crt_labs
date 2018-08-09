@@ -1,0 +1,381 @@
+2018-08-09 04:37:45,043:INFO:Configuration is:
+{   'batch_proc': {'use_async': True, 'use_pin_memory': True},
+    'dataset': {   'train': {   'local': {   'data_root': '/home/mdomrachev/Data/STML/omg_TrainVideos/frames',
+                                             'file_list': '/home/mdomrachev/Data/STML/omg_TrainVideos/train_data_with_landmarks.txt'},
+                                'server': None},
+                   'valid': {   'local': {   'data_root': '/home/mdomrachev/Data/STML/omg_ValidVideos/frames',
+                                             'file_list': '/home/mdomrachev/Data/STML/omg_ValidVideos/valid_data_with_landmarks.txt'},
+                                'server': None}},
+    'ini_net': {   'local': '\\\\unid2face.stc\\PublicB\\kalinovskiy\\ave_log\\EmoV2_step4\\EmoV2_step4_iter_14500.model',
+                   'server': '/media/data/kalinovskiy/face_recognition/logs/AlexNet_CombinedMargin_5/AlexNet_CombinedMargin_5_15000.model'},
+    'logging': {   'log_dir': {   'local': '/home/mdomrachev/Data/STML_projects/pytorch/VEmotionNet/aver_log',
+                                  'server': '/media/data/kalinovskiy/face_recognition_merge/logs'},
+                   'snapshot_dir': {   'local': '/home/mdomrachev/Data/STML_projects/pytorch/VEmotionNet/aver_log',
+                                       'server': '/media/data/kalinovskiy/face_recognition_merge/logs'},
+                   'tb_log_dir': {   'local': '/home/mdomrachev/Data/STML_projects/pytorch/VEmotionNet/aver_log',
+                                     'server': '/media/data/kalinovskiy/face_recognition_merge/logs'}},
+    'losses': {'CC': {'w': 1.0}},
+    'lr_scheduler': {   'gamma': 0.01,
+                        'scale_lr': [1.0, 1],
+                        'scale_lr_fc': [1.0, 1],
+                        'type': 'MultiCyclePolicy',
+                        'use_linear_decay': True},
+    'net': {   'depth': 18,
+               'fine_tune': False,
+               'softmax_size': 2,
+               'type': 'ResNet'},
+    'opt': {   'lr': 0.009,
+               'momentum': 0.2,
+               'type': 'SGD',
+               'weight_decay': 0.0005},
+    'parser': {'max_num_clips': 0, 'max_num_samples': 0},
+    'preproc': {   'aug': {   'color': 'BGR',
+                              'pad': 10,
+                              'use_center_crop': False,
+                              'use_cutout': False,
+                              'use_mirroring': True,
+                              'use_random_crop': True,
+                              'use_random_gray': False},
+                   'crop_size': 200,
+                   'data_frame': {'depth': 1, 'height': 224, 'width': 224},
+                   'is_color': True,
+                   'mean': 127.5,
+                   'scale': 0.007843},
+    'sampler': {'samples_is_randomize': False, 'step_size_for_samples': 4},
+    'seed': 1234,
+    'test': {   'cuda_device': 0,
+                'dataset': {   'data_root': {   'local': 'D:\\AVER\\AFEW-VA\\crop',
+                                                'server': '/media/data/stc-85k-a/faces'},
+                               'test_file_list': {   'local': 'D:\\AVER\\AFEW-VA\\crop/test_data_with_landmarks.txt',
+                                                     'server': '/media/data/kalinovskiy/train_file_list_85k.txt'}},
+                'file_model': '/home/mdomrachev/Data/STML_projects/pytorch/binary_models/step.model'},
+    'train': {   'cuda_device': 0,
+                 'epoch_size': 50000,
+                 'experiment_name': 'EmoV2_step4',
+                 'max_iter': 10000000,
+                 'snapshot_iter': 10000,
+                 'step_print': 100,
+                 'step_size': 100,
+                 'validate_iter': 1000},
+    'train_batcher': {   'batch': 8,
+                         'disk_reader_process_num': 1,
+                         'queue_size': 5},
+    'valid_batcher': {   'batch': 8,
+                         'disk_reader_process_num': 1,
+                         'queue_size': 5}}
+2018-08-09 04:38:50,419:CRITICAL:EmoV2_step40: iteration: 0: Loss: 0.988958, lr: 0.000965
+2018-08-09 04:46:54,637:CRITICAL:EmoV2_step40: validate. Iteration: 0: Accuracy (valence, arousal): 25.221% 2.655%
+2018-08-09 04:46:54,638:CRITICAL:EmoV2_step40: validate. Iteration: 0: Loss: 1.000040
+2018-08-09 04:47:26,120:CRITICAL:EmoV2_step40: iteration: 100: Loss: 0.742824, lr: 0.001030
+2018-08-09 04:47:57,544:CRITICAL:EmoV2_step40: iteration: 200: Loss: 0.965473, lr: 0.001094
+2018-08-09 04:48:29,024:CRITICAL:EmoV2_step40: iteration: 300: Loss: 0.503417, lr: 0.001159
+2018-08-09 04:49:00,487:CRITICAL:EmoV2_step40: iteration: 400: Loss: 1.031651, lr: 0.001224
+2018-08-09 04:49:32,023:CRITICAL:EmoV2_step40: iteration: 500: Loss: 0.774103, lr: 0.001289
+2018-08-09 04:50:03,543:CRITICAL:EmoV2_step40: iteration: 600: Loss: 0.745705, lr: 0.001354
+2018-08-09 04:50:35,084:CRITICAL:EmoV2_step40: iteration: 700: Loss: 0.436498, lr: 0.001418
+2018-08-09 04:51:06,548:CRITICAL:EmoV2_step40: iteration: 800: Loss: 0.760465, lr: 0.001483
+2018-08-09 04:51:38,018:CRITICAL:EmoV2_step40: iteration: 900: Loss: 0.753517, lr: 0.001548
+2018-08-09 04:52:09,485:CRITICAL:EmoV2_step40: iteration: 1000: Loss: 1.287595, lr: 0.001613
+2018-08-09 05:00:14,850:CRITICAL:EmoV2_step40: validate. Iteration: 1000: Accuracy (valence, arousal): 17.257% 14.159%
+2018-08-09 05:00:14,850:CRITICAL:EmoV2_step40: validate. Iteration: 1000: Loss: 0.999812
+2018-08-09 05:00:46,083:CRITICAL:EmoV2_step40: iteration: 1100: Loss: 0.534068, lr: 0.001678
+2018-08-09 05:01:17,583:CRITICAL:EmoV2_step40: iteration: 1200: Loss: 0.867895, lr: 0.001742
+2018-08-09 05:01:49,132:CRITICAL:EmoV2_step40: iteration: 1300: Loss: 0.669087, lr: 0.001807
+2018-08-09 05:02:20,703:CRITICAL:EmoV2_step40: iteration: 1400: Loss: 0.621179, lr: 0.001872
+2018-08-09 05:02:52,070:CRITICAL:EmoV2_step40: iteration: 1500: Loss: 0.741770, lr: 0.001937
+2018-08-09 05:03:23,576:CRITICAL:EmoV2_step40: iteration: 1600: Loss: 0.758916, lr: 0.002002
+2018-08-09 05:03:55,007:CRITICAL:EmoV2_step40: iteration: 1700: Loss: 0.593659, lr: 0.002066
+2018-08-09 05:04:26,121:CRITICAL:EmoV2_step40: iteration: 1800: Loss: 0.641928, lr: 0.002131
+2018-08-09 05:04:57,225:CRITICAL:EmoV2_step40: iteration: 1900: Loss: 0.735490, lr: 0.002196
+2018-08-09 05:05:28,354:CRITICAL:EmoV2_step40: iteration: 2000: Loss: 0.599410, lr: 0.002261
+2018-08-09 05:13:33,891:CRITICAL:EmoV2_step40: validate. Iteration: 2000: Accuracy (valence, arousal): 29.204% 20.796%
+2018-08-09 05:13:33,892:CRITICAL:EmoV2_step40: validate. Iteration: 2000: Loss: 0.998820
+2018-08-09 05:14:05,280:CRITICAL:EmoV2_step40: iteration: 2100: Loss: 0.492895, lr: 0.002326
+2018-08-09 05:14:36,508:CRITICAL:EmoV2_step40: iteration: 2200: Loss: 0.722335, lr: 0.002390
+2018-08-09 05:15:07,940:CRITICAL:EmoV2_step40: iteration: 2300: Loss: 0.643896, lr: 0.002455
+2018-08-09 05:15:39,421:CRITICAL:EmoV2_step40: iteration: 2400: Loss: 0.601726, lr: 0.002520
+2018-08-09 05:16:10,819:CRITICAL:EmoV2_step40: iteration: 2500: Loss: 0.846109, lr: 0.002585
+2018-08-09 05:16:42,249:CRITICAL:EmoV2_step40: iteration: 2600: Loss: 0.758866, lr: 0.002650
+2018-08-09 05:17:13,681:CRITICAL:EmoV2_step40: iteration: 2700: Loss: 0.529171, lr: 0.002714
+2018-08-09 05:17:45,145:CRITICAL:EmoV2_step40: iteration: 2800: Loss: 0.744957, lr: 0.002779
+2018-08-09 05:18:16,667:CRITICAL:EmoV2_step40: iteration: 2900: Loss: 0.678421, lr: 0.002844
+2018-08-09 05:18:48,174:CRITICAL:EmoV2_step40: iteration: 3000: Loss: 0.568711, lr: 0.002909
+2018-08-09 05:26:53,077:CRITICAL:EmoV2_step40: validate. Iteration: 3000: Accuracy (valence, arousal): 20.354% 12.389%
+2018-08-09 05:26:53,078:CRITICAL:EmoV2_step40: validate. Iteration: 3000: Loss: 0.999288
+2018-08-09 05:27:24,431:CRITICAL:EmoV2_step40: iteration: 3100: Loss: 0.605002, lr: 0.002974
+2018-08-09 05:27:55,875:CRITICAL:EmoV2_step40: iteration: 3200: Loss: 0.519575, lr: 0.003038
+2018-08-09 05:28:27,435:CRITICAL:EmoV2_step40: iteration: 3300: Loss: 0.527608, lr: 0.003103
+2018-08-09 05:28:58,985:CRITICAL:EmoV2_step40: iteration: 3400: Loss: 0.400256, lr: 0.003168
+2018-08-09 05:29:30,477:CRITICAL:EmoV2_step40: iteration: 3500: Loss: 0.512499, lr: 0.003233
+2018-08-09 05:30:02,022:CRITICAL:EmoV2_step40: iteration: 3600: Loss: 0.419493, lr: 0.003298
+2018-08-09 05:30:33,285:CRITICAL:EmoV2_step40: iteration: 3700: Loss: 0.643829, lr: 0.003362
+2018-08-09 05:31:04,661:CRITICAL:EmoV2_step40: iteration: 3800: Loss: 0.521493, lr: 0.003427
+2018-08-09 05:31:36,182:CRITICAL:EmoV2_step40: iteration: 3900: Loss: 0.542604, lr: 0.003492
+2018-08-09 05:32:07,638:CRITICAL:EmoV2_step40: iteration: 4000: Loss: 0.734369, lr: 0.003557
+2018-08-09 05:40:13,684:CRITICAL:EmoV2_step40: validate. Iteration: 4000: Accuracy (valence, arousal): 26.106% 20.354%
+2018-08-09 05:40:13,685:CRITICAL:EmoV2_step40: validate. Iteration: 4000: Loss: 0.998702
+2018-08-09 05:40:45,126:CRITICAL:EmoV2_step40: iteration: 4100: Loss: 0.624996, lr: 0.003622
+2018-08-09 05:41:16,472:CRITICAL:EmoV2_step40: iteration: 4200: Loss: 0.893151, lr: 0.003686
+2018-08-09 05:41:47,778:CRITICAL:EmoV2_step40: iteration: 4300: Loss: 0.435287, lr: 0.003751
+2018-08-09 05:42:19,306:CRITICAL:EmoV2_step40: iteration: 4400: Loss: 0.741361, lr: 0.003816
+2018-08-09 05:42:50,805:CRITICAL:EmoV2_step40: iteration: 4500: Loss: 0.820312, lr: 0.003881
+2018-08-09 05:43:22,301:CRITICAL:EmoV2_step40: iteration: 4600: Loss: 0.704236, lr: 0.003946
+2018-08-09 05:43:53,705:CRITICAL:EmoV2_step40: iteration: 4700: Loss: 0.490322, lr: 0.004010
+2018-08-09 05:44:25,111:CRITICAL:EmoV2_step40: iteration: 4800: Loss: 0.778343, lr: 0.004075
+2018-08-09 05:44:56,489:CRITICAL:EmoV2_step40: iteration: 4900: Loss: 0.495302, lr: 0.004140
+2018-08-09 05:45:27,817:CRITICAL:EmoV2_step40: iteration: 5000: Loss: 0.701378, lr: 0.004205
+2018-08-09 05:53:33,300:CRITICAL:EmoV2_step40: validate. Iteration: 5000: Accuracy (valence, arousal): 0.000% 14.159%
+2018-08-09 05:53:33,301:CRITICAL:EmoV2_step40: validate. Iteration: 5000: Loss: 0.999686
+2018-08-09 05:54:04,770:CRITICAL:EmoV2_step40: iteration: 5100: Loss: 0.645996, lr: 0.004270
+2018-08-09 05:54:35,972:CRITICAL:EmoV2_step40: iteration: 5200: Loss: 0.983413, lr: 0.004334
+2018-08-09 05:55:07,259:CRITICAL:EmoV2_step40: iteration: 5300: Loss: 0.712674, lr: 0.004399
+2018-08-09 05:55:38,699:CRITICAL:EmoV2_step40: iteration: 5400: Loss: 0.455292, lr: 0.004464
+2018-08-09 05:56:10,121:CRITICAL:EmoV2_step40: iteration: 5500: Loss: 0.671588, lr: 0.004529
+2018-08-09 05:56:41,425:CRITICAL:EmoV2_step40: iteration: 5600: Loss: 0.771840, lr: 0.004594
+2018-08-09 05:57:12,865:CRITICAL:EmoV2_step40: iteration: 5700: Loss: 0.827152, lr: 0.004658
+2018-08-09 05:57:44,286:CRITICAL:EmoV2_step40: iteration: 5800: Loss: 0.678394, lr: 0.004723
+2018-08-09 05:58:15,702:CRITICAL:EmoV2_step40: iteration: 5900: Loss: 0.553210, lr: 0.004788
+2018-08-09 05:58:47,114:CRITICAL:EmoV2_step40: iteration: 6000: Loss: 0.559346, lr: 0.004853
+2018-08-09 06:06:52,597:CRITICAL:EmoV2_step40: validate. Iteration: 6000: Accuracy (valence, arousal): 11.504% 18.584%
+2018-08-09 06:06:52,597:CRITICAL:EmoV2_step40: validate. Iteration: 6000: Loss: 0.999189
+2018-08-09 06:07:24,027:CRITICAL:EmoV2_step40: iteration: 6100: Loss: 0.745662, lr: 0.004918
+2018-08-09 06:07:55,307:CRITICAL:EmoV2_step40: iteration: 6200: Loss: 0.602042, lr: 0.004982
+2018-08-09 06:08:26,674:CRITICAL:EmoV2_step40: iteration: 6300: Loss: 0.532184, lr: 0.005047
+2018-08-09 06:08:57,988:CRITICAL:EmoV2_step40: iteration: 6400: Loss: 0.556367, lr: 0.005112
+2018-08-09 06:09:29,236:CRITICAL:EmoV2_step40: iteration: 6500: Loss: 0.479417, lr: 0.005177
+2018-08-09 06:10:00,695:CRITICAL:EmoV2_step40: iteration: 6600: Loss: 0.672685, lr: 0.005242
+2018-08-09 06:10:31,949:CRITICAL:EmoV2_step40: iteration: 6700: Loss: 0.717383, lr: 0.005306
+2018-08-09 06:11:03,340:CRITICAL:EmoV2_step40: iteration: 6800: Loss: 0.620653, lr: 0.005371
+2018-08-09 06:11:34,789:CRITICAL:EmoV2_step40: iteration: 6900: Loss: 0.488449, lr: 0.005436
+2018-08-09 06:12:06,266:CRITICAL:EmoV2_step40: iteration: 7000: Loss: 0.545041, lr: 0.005501
+2018-08-09 06:20:11,870:CRITICAL:EmoV2_step40: validate. Iteration: 7000: Accuracy (valence, arousal): 23.451% 9.292%
+2018-08-09 06:20:11,870:CRITICAL:EmoV2_step40: validate. Iteration: 7000: Loss: 0.999347
+2018-08-09 06:20:43,287:CRITICAL:EmoV2_step40: iteration: 7100: Loss: 0.762289, lr: 0.005566
+2018-08-09 06:21:14,719:CRITICAL:EmoV2_step40: iteration: 7200: Loss: 0.432740, lr: 0.005630
+2018-08-09 06:21:46,144:CRITICAL:EmoV2_step40: iteration: 7300: Loss: 0.615574, lr: 0.005695
+2018-08-09 06:22:17,682:CRITICAL:EmoV2_step40: iteration: 7400: Loss: 0.412177, lr: 0.005760
+2018-08-09 06:22:49,135:CRITICAL:EmoV2_step40: iteration: 7500: Loss: 0.449447, lr: 0.005825
+2018-08-09 06:23:20,464:CRITICAL:EmoV2_step40: iteration: 7600: Loss: 0.368609, lr: 0.005890
+2018-08-09 06:23:51,705:CRITICAL:EmoV2_step40: iteration: 7700: Loss: 0.723009, lr: 0.005954
+2018-08-09 06:24:23,148:CRITICAL:EmoV2_step40: iteration: 7800: Loss: 0.720708, lr: 0.006019
+2018-08-09 06:24:54,480:CRITICAL:EmoV2_step40: iteration: 7900: Loss: 0.612217, lr: 0.006084
+2018-08-09 06:25:25,853:CRITICAL:EmoV2_step40: iteration: 8000: Loss: 0.419825, lr: 0.006149
+2018-08-09 06:33:31,387:CRITICAL:EmoV2_step40: validate. Iteration: 8000: Accuracy (valence, arousal): 25.221% 23.451%
+2018-08-09 06:33:31,388:CRITICAL:EmoV2_step40: validate. Iteration: 8000: Loss: 0.999118
+2018-08-09 06:34:02,795:CRITICAL:EmoV2_step40: iteration: 8100: Loss: 0.758381, lr: 0.006214
+2018-08-09 06:34:34,023:CRITICAL:EmoV2_step40: iteration: 8200: Loss: 0.601242, lr: 0.006278
+2018-08-09 06:35:05,326:CRITICAL:EmoV2_step40: iteration: 8300: Loss: 0.423681, lr: 0.006343
+2018-08-09 06:35:36,455:CRITICAL:EmoV2_step40: iteration: 8400: Loss: 0.600040, lr: 0.006408
+2018-08-09 06:36:07,605:CRITICAL:EmoV2_step40: iteration: 8500: Loss: 0.521057, lr: 0.006473
+2018-08-09 06:36:38,998:CRITICAL:EmoV2_step40: iteration: 8600: Loss: 0.485107, lr: 0.006538
+2018-08-09 06:37:10,527:CRITICAL:EmoV2_step40: iteration: 8700: Loss: 0.417411, lr: 0.006602
+2018-08-09 06:37:41,706:CRITICAL:EmoV2_step40: iteration: 8800: Loss: 0.528851, lr: 0.006667
+2018-08-09 06:38:12,847:CRITICAL:EmoV2_step40: iteration: 8900: Loss: 0.788094, lr: 0.006732
+2018-08-09 06:38:44,265:CRITICAL:EmoV2_step40: iteration: 9000: Loss: 0.618553, lr: 0.006797
+2018-08-09 06:46:49,468:CRITICAL:EmoV2_step40: validate. Iteration: 9000: Accuracy (valence, arousal): 26.106% 23.451%
+2018-08-09 06:46:49,469:CRITICAL:EmoV2_step40: validate. Iteration: 9000: Loss: 0.999312
+2018-08-09 06:47:20,887:CRITICAL:EmoV2_step40: iteration: 9100: Loss: 0.510278, lr: 0.006862
+2018-08-09 06:47:52,403:CRITICAL:EmoV2_step40: iteration: 9200: Loss: 0.575691, lr: 0.006926
+2018-08-09 06:48:23,973:CRITICAL:EmoV2_step40: iteration: 9300: Loss: 0.499539, lr: 0.006991
+2018-08-09 06:48:55,263:CRITICAL:EmoV2_step40: iteration: 9400: Loss: 0.487444, lr: 0.007056
+2018-08-09 06:49:26,779:CRITICAL:EmoV2_step40: iteration: 9500: Loss: 0.518784, lr: 0.007121
+2018-08-09 06:49:58,131:CRITICAL:EmoV2_step40: iteration: 9600: Loss: 0.370591, lr: 0.007186
+2018-08-09 06:50:29,577:CRITICAL:EmoV2_step40: iteration: 9700: Loss: 0.654400, lr: 0.007250
+2018-08-09 06:51:01,113:CRITICAL:EmoV2_step40: iteration: 9800: Loss: 0.495147, lr: 0.007315
+2018-08-09 06:51:32,390:CRITICAL:EmoV2_step40: iteration: 9900: Loss: 0.376572, lr: 0.007380
+2018-08-09 06:52:47,185:CRITICAL:EmoV2_step40: iteration: 10000: Loss: 0.476755, lr: 0.007445
+2018-08-09 07:00:52,455:CRITICAL:EmoV2_step40: validate. Iteration: 10000: Accuracy (valence, arousal): 29.646% 19.469%
+2018-08-09 07:00:52,455:CRITICAL:EmoV2_step40: validate. Iteration: 10000: Loss: 0.999879
+2018-08-09 07:01:23,851:CRITICAL:EmoV2_step40: iteration: 10100: Loss: 0.383337, lr: 0.007510
+2018-08-09 07:01:55,380:CRITICAL:EmoV2_step40: iteration: 10200: Loss: 0.661960, lr: 0.007574
+2018-08-09 07:02:26,899:CRITICAL:EmoV2_step40: iteration: 10300: Loss: 0.326511, lr: 0.007639
+2018-08-09 07:02:58,326:CRITICAL:EmoV2_step40: iteration: 10400: Loss: 0.447909, lr: 0.007704
+2018-08-09 07:03:29,793:CRITICAL:EmoV2_step40: iteration: 10500: Loss: 0.418238, lr: 0.007769
+2018-08-09 07:04:01,287:CRITICAL:EmoV2_step40: iteration: 10600: Loss: 0.484999, lr: 0.007834
+2018-08-09 07:04:32,787:CRITICAL:EmoV2_step40: iteration: 10700: Loss: 0.623454, lr: 0.007898
+2018-08-09 07:05:04,276:CRITICAL:EmoV2_step40: iteration: 10800: Loss: 0.455936, lr: 0.007963
+2018-08-09 07:05:35,637:CRITICAL:EmoV2_step40: iteration: 10900: Loss: 0.465304, lr: 0.008028
+2018-08-09 07:06:07,000:CRITICAL:EmoV2_step40: iteration: 11000: Loss: 0.751914, lr: 0.008093
+2018-08-09 07:14:12,941:CRITICAL:EmoV2_step40: validate. Iteration: 11000: Accuracy (valence, arousal): 32.301% 24.779%
+2018-08-09 07:14:12,942:CRITICAL:EmoV2_step40: validate. Iteration: 11000: Loss: 0.998701
+2018-08-09 07:14:44,340:CRITICAL:EmoV2_step40: iteration: 11100: Loss: 0.429407, lr: 0.008158
+2018-08-09 07:15:15,885:CRITICAL:EmoV2_step40: iteration: 11200: Loss: 0.470199, lr: 0.008222
+2018-08-09 07:15:47,295:CRITICAL:EmoV2_step40: iteration: 11300: Loss: 0.440140, lr: 0.008287
+2018-08-09 07:16:18,737:CRITICAL:EmoV2_step40: iteration: 11400: Loss: 0.275322, lr: 0.008352
+2018-08-09 07:16:50,240:CRITICAL:EmoV2_step40: iteration: 11500: Loss: 0.514952, lr: 0.008417
+2018-08-09 07:17:21,718:CRITICAL:EmoV2_step40: iteration: 11600: Loss: 0.251384, lr: 0.008482
+2018-08-09 07:17:52,977:CRITICAL:EmoV2_step40: iteration: 11700: Loss: 0.314691, lr: 0.008546
+2018-08-09 07:18:24,459:CRITICAL:EmoV2_step40: iteration: 11800: Loss: 0.473885, lr: 0.008611
+2018-08-09 07:18:55,936:CRITICAL:EmoV2_step40: iteration: 11900: Loss: 0.909684, lr: 0.008676
+2018-08-09 07:19:27,306:CRITICAL:EmoV2_step40: iteration: 12000: Loss: 0.322266, lr: 0.008741
+2018-08-09 07:27:33,186:CRITICAL:EmoV2_step40: validate. Iteration: 12000: Accuracy (valence, arousal): 27.876% 16.372%
+2018-08-09 07:27:33,186:CRITICAL:EmoV2_step40: validate. Iteration: 12000: Loss: 0.999666
+2018-08-09 07:28:04,621:CRITICAL:EmoV2_step40: iteration: 12100: Loss: 0.470733, lr: 0.008806
+2018-08-09 07:28:36,084:CRITICAL:EmoV2_step40: iteration: 12200: Loss: 0.289210, lr: 0.008870
+2018-08-09 07:29:07,614:CRITICAL:EmoV2_step40: iteration: 12300: Loss: 0.527511, lr: 0.008935
+2018-08-09 07:29:39,149:CRITICAL:EmoV2_step40: iteration: 12400: Loss: 0.432448, lr: 0.009000
+2018-08-09 07:30:10,389:CRITICAL:EmoV2_step40: iteration: 12500: Loss: 0.405297, lr: 0.008984
+2018-08-09 07:30:41,541:CRITICAL:EmoV2_step40: iteration: 12600: Loss: 0.585548, lr: 0.008968
+2018-08-09 07:31:12,926:CRITICAL:EmoV2_step40: iteration: 12700: Loss: 0.436531, lr: 0.008951
+2018-08-09 07:31:44,483:CRITICAL:EmoV2_step40: iteration: 12800: Loss: 0.472358, lr: 0.008935
+2018-08-09 07:32:15,996:CRITICAL:EmoV2_step40: iteration: 12900: Loss: 0.568434, lr: 0.008919
+2018-08-09 07:32:47,510:CRITICAL:EmoV2_step40: iteration: 13000: Loss: 0.321979, lr: 0.008903
+2018-08-09 07:40:52,908:CRITICAL:EmoV2_step40: validate. Iteration: 13000: Accuracy (valence, arousal): 26.991% 17.699%
+2018-08-09 07:40:52,909:CRITICAL:EmoV2_step40: validate. Iteration: 13000: Loss: 0.999241
+2018-08-09 07:41:24,336:CRITICAL:EmoV2_step40: iteration: 13100: Loss: 0.322632, lr: 0.008887
+2018-08-09 07:41:55,748:CRITICAL:EmoV2_step40: iteration: 13200: Loss: 0.272203, lr: 0.008870
+2018-08-09 07:42:27,161:CRITICAL:EmoV2_step40: iteration: 13300: Loss: 0.367020, lr: 0.008854
+2018-08-09 07:42:58,503:CRITICAL:EmoV2_step40: iteration: 13400: Loss: 0.202994, lr: 0.008838
+2018-08-09 07:43:29,944:CRITICAL:EmoV2_step40: iteration: 13500: Loss: 0.452250, lr: 0.008822
+2018-08-09 07:44:01,287:CRITICAL:EmoV2_step40: iteration: 13600: Loss: 0.431723, lr: 0.008806
+2018-08-09 07:44:32,521:CRITICAL:EmoV2_step40: iteration: 13700: Loss: 0.343946, lr: 0.008789
+2018-08-09 07:45:04,008:CRITICAL:EmoV2_step40: iteration: 13800: Loss: 0.301726, lr: 0.008773
+2018-08-09 07:45:35,428:CRITICAL:EmoV2_step40: iteration: 13900: Loss: 0.364403, lr: 0.008757
+2018-08-09 07:46:06,924:CRITICAL:EmoV2_step40: iteration: 14000: Loss: 0.353112, lr: 0.008741
+2018-08-09 07:54:13,155:CRITICAL:EmoV2_step40: validate. Iteration: 14000: Accuracy (valence, arousal): 32.301% 19.469%
+2018-08-09 07:54:13,156:CRITICAL:EmoV2_step40: validate. Iteration: 14000: Loss: 0.999723
+2018-08-09 07:54:44,594:CRITICAL:EmoV2_step40: iteration: 14100: Loss: 1.168266, lr: 0.008725
+2018-08-09 07:55:16,096:CRITICAL:EmoV2_step40: iteration: 14200: Loss: 0.387050, lr: 0.008708
+2018-08-09 07:55:47,587:CRITICAL:EmoV2_step40: iteration: 14300: Loss: 0.288143, lr: 0.008692
+2018-08-09 07:56:18,956:CRITICAL:EmoV2_step40: iteration: 14400: Loss: 0.370647, lr: 0.008676
+2018-08-09 07:56:50,386:CRITICAL:EmoV2_step40: iteration: 14500: Loss: 0.437730, lr: 0.008660
+2018-08-09 07:57:21,873:CRITICAL:EmoV2_step40: iteration: 14600: Loss: 0.405789, lr: 0.008644
+2018-08-09 07:57:53,318:CRITICAL:EmoV2_step40: iteration: 14700: Loss: 0.249964, lr: 0.008627
+2018-08-09 07:58:24,689:CRITICAL:EmoV2_step40: iteration: 14800: Loss: 0.346530, lr: 0.008611
+2018-08-09 07:58:56,090:CRITICAL:EmoV2_step40: iteration: 14900: Loss: 0.384982, lr: 0.008595
+2018-08-09 07:59:27,576:CRITICAL:EmoV2_step40: iteration: 15000: Loss: 0.389404, lr: 0.008579
+2018-08-09 08:07:33,383:CRITICAL:EmoV2_step40: validate. Iteration: 15000: Accuracy (valence, arousal): 33.186% 24.336%
+2018-08-09 08:07:33,383:CRITICAL:EmoV2_step40: validate. Iteration: 15000: Loss: 0.999477
+2018-08-09 08:08:04,889:CRITICAL:EmoV2_step40: iteration: 15100: Loss: 0.630370, lr: 0.008563
+2018-08-09 08:08:36,331:CRITICAL:EmoV2_step40: iteration: 15200: Loss: 0.687899, lr: 0.008546
+2018-08-09 08:09:07,792:CRITICAL:EmoV2_step40: iteration: 15300: Loss: 0.698752, lr: 0.008530
+2018-08-09 08:09:39,272:CRITICAL:EmoV2_step40: iteration: 15400: Loss: 0.477263, lr: 0.008514
+2018-08-09 08:10:10,691:CRITICAL:EmoV2_step40: iteration: 15500: Loss: 0.552358, lr: 0.008498
+2018-08-09 08:10:42,197:CRITICAL:EmoV2_step40: iteration: 15600: Loss: 0.351932, lr: 0.008482
+2018-08-09 08:11:13,738:CRITICAL:EmoV2_step40: iteration: 15700: Loss: 0.291250, lr: 0.008465
+2018-08-09 08:11:45,174:CRITICAL:EmoV2_step40: iteration: 15800: Loss: 0.291198, lr: 0.008449
+2018-08-09 08:12:16,708:CRITICAL:EmoV2_step40: iteration: 15900: Loss: 0.542306, lr: 0.008433
+2018-08-09 08:12:48,175:CRITICAL:EmoV2_step40: iteration: 16000: Loss: 0.468092, lr: 0.008417
+2018-08-09 08:20:54,808:CRITICAL:EmoV2_step40: validate. Iteration: 16000: Accuracy (valence, arousal): 32.743% 18.142%
+2018-08-09 08:20:54,808:CRITICAL:EmoV2_step40: validate. Iteration: 16000: Loss: 0.998624
+2018-08-09 08:21:26,185:CRITICAL:EmoV2_step40: iteration: 16100: Loss: 0.644911, lr: 0.008401
+2018-08-09 08:21:57,655:CRITICAL:EmoV2_step40: iteration: 16200: Loss: 0.391560, lr: 0.008384
+2018-08-09 08:22:29,174:CRITICAL:EmoV2_step40: iteration: 16300: Loss: 0.353376, lr: 0.008368
+2018-08-09 08:23:00,694:CRITICAL:EmoV2_step40: iteration: 16400: Loss: 0.433147, lr: 0.008352
+2018-08-09 08:23:32,115:CRITICAL:EmoV2_step40: iteration: 16500: Loss: 0.450058, lr: 0.008336
+2018-08-09 08:24:03,574:CRITICAL:EmoV2_step40: iteration: 16600: Loss: 0.480582, lr: 0.008320
+2018-08-09 08:24:35,087:CRITICAL:EmoV2_step40: iteration: 16700: Loss: 0.381915, lr: 0.008303
+2018-08-09 08:25:06,681:CRITICAL:EmoV2_step40: iteration: 16800: Loss: 0.632091, lr: 0.008287
+2018-08-09 08:25:38,248:CRITICAL:EmoV2_step40: iteration: 16900: Loss: 0.265060, lr: 0.008271
+2018-08-09 08:26:09,763:CRITICAL:EmoV2_step40: iteration: 17000: Loss: 0.696002, lr: 0.008255
+2018-08-09 08:34:15,786:CRITICAL:EmoV2_step40: validate. Iteration: 17000: Accuracy (valence, arousal): 32.301% 19.027%
+2018-08-09 08:34:15,786:CRITICAL:EmoV2_step40: validate. Iteration: 17000: Loss: 0.999257
+2018-08-09 08:34:47,300:CRITICAL:EmoV2_step40: iteration: 17100: Loss: 0.543169, lr: 0.008239
+2018-08-09 08:35:18,801:CRITICAL:EmoV2_step40: iteration: 17200: Loss: 0.238919, lr: 0.008222
+2018-08-09 08:35:50,331:CRITICAL:EmoV2_step40: iteration: 17300: Loss: 0.426334, lr: 0.008206
+2018-08-09 08:36:21,465:CRITICAL:EmoV2_step40: iteration: 17400: Loss: 0.492808, lr: 0.008190
+2018-08-09 08:36:52,815:CRITICAL:EmoV2_step40: iteration: 17500: Loss: 0.325328, lr: 0.008174
+2018-08-09 08:37:24,269:CRITICAL:EmoV2_step40: iteration: 17600: Loss: 0.196332, lr: 0.008158
+2018-08-09 08:37:55,751:CRITICAL:EmoV2_step40: iteration: 17700: Loss: 0.369871, lr: 0.008141
+2018-08-09 08:38:27,242:CRITICAL:EmoV2_step40: iteration: 17800: Loss: 0.226519, lr: 0.008125
+2018-08-09 08:38:58,473:CRITICAL:EmoV2_step40: iteration: 17900: Loss: 0.222820, lr: 0.008109
+2018-08-09 08:39:29,651:CRITICAL:EmoV2_step40: iteration: 18000: Loss: 0.243941, lr: 0.008093
+2018-08-09 08:47:35,807:CRITICAL:EmoV2_step40: validate. Iteration: 18000: Accuracy (valence, arousal): 31.858% 22.124%
+2018-08-09 08:47:35,808:CRITICAL:EmoV2_step40: validate. Iteration: 18000: Loss: 0.998784
+2018-08-09 08:48:07,368:CRITICAL:EmoV2_step40: iteration: 18100: Loss: 0.290632, lr: 0.008077
+2018-08-09 08:48:38,862:CRITICAL:EmoV2_step40: iteration: 18200: Loss: 0.285965, lr: 0.008060
+2018-08-09 08:49:10,255:CRITICAL:EmoV2_step40: iteration: 18300: Loss: 0.271500, lr: 0.008044
+2018-08-09 08:49:41,690:CRITICAL:EmoV2_step40: iteration: 18400: Loss: 0.464026, lr: 0.008028
+2018-08-09 08:50:13,058:CRITICAL:EmoV2_step40: iteration: 18500: Loss: 0.431367, lr: 0.008012
+2018-08-09 08:50:44,392:CRITICAL:EmoV2_step40: iteration: 18600: Loss: 0.357781, lr: 0.007996
+2018-08-09 08:51:15,819:CRITICAL:EmoV2_step40: iteration: 18700: Loss: 0.300957, lr: 0.007979
+2018-08-09 08:51:47,293:CRITICAL:EmoV2_step40: iteration: 18800: Loss: 0.253321, lr: 0.007963
+2018-08-09 08:52:18,834:CRITICAL:EmoV2_step40: iteration: 18900: Loss: 0.365097, lr: 0.007947
+2018-08-09 08:52:50,290:CRITICAL:EmoV2_step40: iteration: 19000: Loss: 0.442908, lr: 0.007931
+2018-08-09 09:00:56,842:CRITICAL:EmoV2_step40: validate. Iteration: 19000: Accuracy (valence, arousal): 31.858% 16.814%
+2018-08-09 09:00:56,843:CRITICAL:EmoV2_step40: validate. Iteration: 19000: Loss: 0.999030
+2018-08-09 09:01:28,295:CRITICAL:EmoV2_step40: iteration: 19100: Loss: 0.194925, lr: 0.007915
+2018-08-09 09:01:59,693:CRITICAL:EmoV2_step40: iteration: 19200: Loss: 0.232282, lr: 0.007898
+2018-08-09 09:02:31,187:CRITICAL:EmoV2_step40: iteration: 19300: Loss: 0.257132, lr: 0.007882
+2018-08-09 09:03:02,718:CRITICAL:EmoV2_step40: iteration: 19400: Loss: 0.658367, lr: 0.007866
+2018-08-09 09:03:34,138:CRITICAL:EmoV2_step40: iteration: 19500: Loss: 0.543606, lr: 0.007850
+2018-08-09 09:04:05,613:CRITICAL:EmoV2_step40: iteration: 19600: Loss: 0.479126, lr: 0.007834
+2018-08-09 09:04:37,074:CRITICAL:EmoV2_step40: iteration: 19700: Loss: 0.404779, lr: 0.007817
+2018-08-09 09:05:08,509:CRITICAL:EmoV2_step40: iteration: 19800: Loss: 0.487338, lr: 0.007801
+2018-08-09 09:05:40,023:CRITICAL:EmoV2_step40: iteration: 19900: Loss: 0.462349, lr: 0.007785
+2018-08-09 09:06:52,972:CRITICAL:EmoV2_step40: iteration: 20000: Loss: 0.493745, lr: 0.007769
+2018-08-09 09:14:58,543:CRITICAL:EmoV2_step40: validate. Iteration: 20000: Accuracy (valence, arousal): 38.938% 24.779%
+2018-08-09 09:14:58,544:CRITICAL:EmoV2_step40: validate. Iteration: 20000: Loss: 0.999009
+2018-08-09 09:15:29,712:CRITICAL:EmoV2_step40: iteration: 20100: Loss: 0.337049, lr: 0.007753
+2018-08-09 09:16:00,864:CRITICAL:EmoV2_step40: iteration: 20200: Loss: 0.354688, lr: 0.007736
+2018-08-09 09:16:32,202:CRITICAL:EmoV2_step40: iteration: 20300: Loss: 0.229366, lr: 0.007720
+2018-08-09 09:17:03,566:CRITICAL:EmoV2_step40: iteration: 20400: Loss: 0.262712, lr: 0.007704
+2018-08-09 09:17:35,004:CRITICAL:EmoV2_step40: iteration: 20500: Loss: 0.393356, lr: 0.007688
+2018-08-09 09:18:06,447:CRITICAL:EmoV2_step40: iteration: 20600: Loss: 0.499480, lr: 0.007672
+2018-08-09 09:18:37,898:CRITICAL:EmoV2_step40: iteration: 20700: Loss: 0.462919, lr: 0.007655
+2018-08-09 09:19:09,375:CRITICAL:EmoV2_step40: iteration: 20800: Loss: 0.203889, lr: 0.007639
+2018-08-09 09:19:40,768:CRITICAL:EmoV2_step40: iteration: 20900: Loss: 0.410915, lr: 0.007623
+2018-08-09 09:20:12,198:CRITICAL:EmoV2_step40: iteration: 21000: Loss: 0.588039, lr: 0.007607
+2018-08-09 09:28:18,460:CRITICAL:EmoV2_step40: validate. Iteration: 21000: Accuracy (valence, arousal): 32.743% 20.796%
+2018-08-09 09:28:18,460:CRITICAL:EmoV2_step40: validate. Iteration: 21000: Loss: 0.998692
+2018-08-09 09:28:49,616:CRITICAL:EmoV2_step40: iteration: 21100: Loss: 0.289482, lr: 0.007591
+2018-08-09 09:29:21,068:CRITICAL:EmoV2_step40: iteration: 21200: Loss: 0.364681, lr: 0.007574
+2018-08-09 09:29:52,465:CRITICAL:EmoV2_step40: iteration: 21300: Loss: 0.344266, lr: 0.007558
+2018-08-09 09:30:23,887:CRITICAL:EmoV2_step40: iteration: 21400: Loss: 0.355065, lr: 0.007542
+2018-08-09 09:30:55,201:CRITICAL:EmoV2_step40: iteration: 21500: Loss: 0.290230, lr: 0.007526
+2018-08-09 09:31:26,691:CRITICAL:EmoV2_step40: iteration: 21600: Loss: 0.550504, lr: 0.007510
+2018-08-09 09:31:58,224:CRITICAL:EmoV2_step40: iteration: 21700: Loss: 0.541972, lr: 0.007493
+2018-08-09 09:32:29,769:CRITICAL:EmoV2_step40: iteration: 21800: Loss: 0.252661, lr: 0.007477
+2018-08-09 09:33:01,248:CRITICAL:EmoV2_step40: iteration: 21900: Loss: 0.604930, lr: 0.007461
+2018-08-09 09:33:32,400:CRITICAL:EmoV2_step40: iteration: 22000: Loss: 0.465277, lr: 0.007445
+2018-08-09 09:41:38,443:CRITICAL:EmoV2_step40: validate. Iteration: 22000: Accuracy (valence, arousal): 29.646% 24.336%
+2018-08-09 09:41:38,444:CRITICAL:EmoV2_step40: validate. Iteration: 22000: Loss: 0.998886
+2018-08-09 09:42:09,600:CRITICAL:EmoV2_step40: iteration: 22100: Loss: 0.398771, lr: 0.007429
+2018-08-09 09:42:40,736:CRITICAL:EmoV2_step40: iteration: 22200: Loss: 0.403216, lr: 0.007412
+2018-08-09 09:43:11,890:CRITICAL:EmoV2_step40: iteration: 22300: Loss: 0.525744, lr: 0.007396
+2018-08-09 09:43:43,184:CRITICAL:EmoV2_step40: iteration: 22400: Loss: 0.261265, lr: 0.007380
+2018-08-09 09:44:14,561:CRITICAL:EmoV2_step40: iteration: 22500: Loss: 0.296291, lr: 0.007364
+2018-08-09 09:44:45,965:CRITICAL:EmoV2_step40: iteration: 22600: Loss: 0.196767, lr: 0.007348
+2018-08-09 09:45:17,467:CRITICAL:EmoV2_step40: iteration: 22700: Loss: 0.274061, lr: 0.007331
+2018-08-09 09:45:48,908:CRITICAL:EmoV2_step40: iteration: 22800: Loss: 0.355254, lr: 0.007315
+2018-08-09 09:46:20,362:CRITICAL:EmoV2_step40: iteration: 22900: Loss: 0.337452, lr: 0.007299
+2018-08-09 09:46:51,495:CRITICAL:EmoV2_step40: iteration: 23000: Loss: 0.551548, lr: 0.007283
+2018-08-09 09:54:57,835:CRITICAL:EmoV2_step40: validate. Iteration: 23000: Accuracy (valence, arousal): 30.531% 23.009%
+2018-08-09 09:54:57,836:CRITICAL:EmoV2_step40: validate. Iteration: 23000: Loss: 0.998974
+2018-08-09 09:55:29,271:CRITICAL:EmoV2_step40: iteration: 23100: Loss: 0.428277, lr: 0.007267
+2018-08-09 09:56:00,740:CRITICAL:EmoV2_step40: iteration: 23200: Loss: 0.286917, lr: 0.007250
+2018-08-09 09:56:32,235:CRITICAL:EmoV2_step40: iteration: 23300: Loss: 0.215457, lr: 0.007234
+2018-08-09 09:57:03,703:CRITICAL:EmoV2_step40: iteration: 23400: Loss: 0.465418, lr: 0.007218
+2018-08-09 09:57:35,196:CRITICAL:EmoV2_step40: iteration: 23500: Loss: 0.378757, lr: 0.007202
+2018-08-09 09:58:06,727:CRITICAL:EmoV2_step40: iteration: 23600: Loss: 0.277121, lr: 0.007186
+2018-08-09 09:58:38,272:CRITICAL:EmoV2_step40: iteration: 23700: Loss: 0.476376, lr: 0.007169
+2018-08-09 09:59:09,767:CRITICAL:EmoV2_step40: iteration: 23800: Loss: 0.480954, lr: 0.007153
+2018-08-09 09:59:41,040:CRITICAL:EmoV2_step40: iteration: 23900: Loss: 0.351191, lr: 0.007137
+2018-08-09 10:00:12,430:CRITICAL:EmoV2_step40: iteration: 24000: Loss: 0.540252, lr: 0.007121
+2018-08-09 10:08:18,450:CRITICAL:EmoV2_step40: validate. Iteration: 24000: Accuracy (valence, arousal): 32.301% 18.142%
+2018-08-09 10:08:18,450:CRITICAL:EmoV2_step40: validate. Iteration: 24000: Loss: 0.999339
+2018-08-09 10:08:49,968:CRITICAL:EmoV2_step40: iteration: 24100: Loss: 0.222073, lr: 0.007105
+2018-08-09 10:09:21,193:CRITICAL:EmoV2_step40: iteration: 24200: Loss: 0.279977, lr: 0.007088
+2018-08-09 10:09:52,348:CRITICAL:EmoV2_step40: iteration: 24300: Loss: 0.386387, lr: 0.007072
+2018-08-09 10:10:23,510:CRITICAL:EmoV2_step40: iteration: 24400: Loss: 0.238900, lr: 0.007056
+2018-08-09 10:10:54,695:CRITICAL:EmoV2_step40: iteration: 24500: Loss: 0.619421, lr: 0.007040
+2018-08-09 10:11:26,194:CRITICAL:EmoV2_step40: iteration: 24600: Loss: 0.324861, lr: 0.007024
+2018-08-09 10:11:57,624:CRITICAL:EmoV2_step40: iteration: 24700: Loss: 0.481957, lr: 0.007007
+2018-08-09 10:12:29,014:CRITICAL:EmoV2_step40: iteration: 24800: Loss: 0.334993, lr: 0.006991
+2018-08-09 10:13:00,209:CRITICAL:EmoV2_step40: iteration: 24900: Loss: 0.250017, lr: 0.006975
+2018-08-09 10:13:31,364:CRITICAL:EmoV2_step40: iteration: 25000: Loss: 0.228770, lr: 0.006959
+2018-08-09 10:21:37,730:CRITICAL:EmoV2_step40: validate. Iteration: 25000: Accuracy (valence, arousal): 31.416% 19.027%
+2018-08-09 10:21:37,730:CRITICAL:EmoV2_step40: validate. Iteration: 25000: Loss: 0.998779
+2018-08-09 10:22:09,094:CRITICAL:EmoV2_step40: iteration: 25100: Loss: 0.352564, lr: 0.006943
+2018-08-09 10:22:40,398:CRITICAL:EmoV2_step40: iteration: 25200: Loss: 0.238514, lr: 0.006926
+2018-08-09 10:23:11,856:CRITICAL:EmoV2_step40: iteration: 25300: Loss: 0.211177, lr: 0.006910
+2018-08-09 10:23:43,291:CRITICAL:EmoV2_step40: iteration: 25400: Loss: 0.505410, lr: 0.006894
+2018-08-09 10:24:14,843:CRITICAL:EmoV2_step40: iteration: 25500: Loss: 0.258555, lr: 0.006878
+2018-08-09 10:24:46,281:CRITICAL:EmoV2_step40: iteration: 25600: Loss: 0.320174, lr: 0.006862
+2018-08-09 10:25:17,430:CRITICAL:EmoV2_step40: iteration: 25700: Loss: 0.419555, lr: 0.006845
+2018-08-09 10:25:48,708:CRITICAL:EmoV2_step40: iteration: 25800: Loss: 0.315593, lr: 0.006829
+2018-08-09 10:26:20,107:CRITICAL:EmoV2_step40: iteration: 25900: Loss: 0.313066, lr: 0.006813
+2018-08-09 10:26:51,389:CRITICAL:EmoV2_step40: iteration: 26000: Loss: 0.348193, lr: 0.006797
+2018-08-09 10:34:57,246:CRITICAL:EmoV2_step40: validate. Iteration: 26000: Accuracy (valence, arousal): 33.628% 18.142%
+2018-08-09 10:34:57,247:CRITICAL:EmoV2_step40: validate. Iteration: 26000: Loss: 0.998681
+2018-08-09 10:35:28,773:CRITICAL:EmoV2_step40: iteration: 26100: Loss: 0.381051, lr: 0.006781
