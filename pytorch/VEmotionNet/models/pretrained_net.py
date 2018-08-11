@@ -1,12 +1,18 @@
-# -*- coding: utf-8 -*-
 import torch
-from STML_projects.pytorch.VEmotionNet.models.net_sphere import sphere20a
-from STML_projects.pytorch.VEmotionNet.models.resnet50_face_bn_dag import resnet50_face_bn_dag
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision import datasets, models
 from STML_projects.pytorch.common.losses import *
 from collections import OrderedDict
+
+from torch.autograd import Variable
+import math
+from functools import partial
+import numpy as np
+import STML_projects.pytorch.VEmotionNet.models.resnet as resnet
+
+
+# https://github.com/kenshohara/3D-ResNets-PyTorch/blob/master/models/resnet.py
 
 
 
@@ -28,14 +34,23 @@ class FeatureExtractor(nn.Module):
 
 
 class Flatten(nn.Module):
-
     def __init__(self):
-
         super(Flatten, self).__init__()
-
     def forward(self, x):
-
         return x.view(x.size(0), -1)
+
+
+def weights_init(m):
+    if isinstance(m, nn.Linear):
+        torch.nn.init.xavier_normal_(m.weight.data, gain=np.sqrt(2))
+        if m.bias is not None:
+            torch.nn.init.constant_(m.bias.data, 0)
+    if isinstance(m, nn.Conv2d):
+        torch.nn.init.xavier_normal_(m.weight.data, gain=np.sqrt(2))
+        if m.bias is not None:
+            torch.nn.init.constant_(m.bias.data, 0)
+    if isinstance(m, nn.BatchNorm2d):
+        torch.nn.init.xavier_normal_(m.weight.data, gain=np.sqrt(2))
 
 
 class CNNNet(nn.Module):
@@ -44,57 +59,42 @@ class CNNNet(nn.Module):
         sample_size = data_size['width']
         sample_duration = data_size['depth']
 
-        # TODO: Реализуйте архитектуру нейронной сети
+        if depth == 34:
+            pretrained_net = resnet.resnet34(sample_size=sample_size, sample_duration=sample_duration)
+        elif depth == 50:
+            pretrained_net = resnet.resnet50(sample_size=sample_size, sample_duration=sample_duration)
+        elif depth == 101:
+            pretrained_net = resnet.resnet101(sample_size=sample_size, sample_duration=sample_duration)
+        else:
+            pretrained_net = resnet.resnet18(sample_size=sample_size, sample_duration=sample_duration)
+        num_ftrs =  9* pretrained_net.fc.in_features
 
-        # net = []
-        # module = nn.Sequential()
-        # module.add_module('conv1', nn.Conv2d(3, 32, 5, 1, 2))
-        # module.add_module('conv2', nn.Conv2d(32, 96, 3, 1, 1))
-        # module.add_module('pool', nn.AdaptiveAvgPool2d(1))
-        # module.add_module('flatten', Flatten())
-        # module.add_module('linear', nn.Linear(96, num_classes))
-        # self.net = module
+        if not pretrain_weight is None:
+            try:
+                state_dict = torch.load(pretrain_weight)['state_dict']
+                new_state_dict = OrderedDict()
+                for k, v in state_dict.items():
+                    name = k[7:]  # remove 'module.' of dataparallel
+                    new_state_dict[name] = v
+                pretrained_net.load_state_dict(new_state_dict)
+            except:
+                pass
 
-        model_ft = models.resnet152(pretrained=True)
-        num_ftrs = model_ft.fc.in_features
-        model_ft.add_module('dropout', nn.Dropout(p=0.5))
-        model_ft.fc = nn.Linear(num_ftrs, num_classes)
-        self.net = model_ft
+        modules = nn.Sequential()
+        modules.add_module('Flatten', Flatten())
+        modules.add_module('pr0', nn.ReLU())
+        modules.add_module('fc1', nn.Linear(num_ftrs, 1024, bias=True))
+        modules.add_module('pr1', nn.ReLU())
+        modules.add_module('dp1', nn.Dropout())
+        modules.add_module('fc2', nn.Linear(1024, num_classes, bias=True))
 
-        # self.net = FeatureExtractor(net, emb_name)
-        
-        #model_ft = resnet50_face_bn_dag('/home/mdomrachev/Data/STML_projects/pytorch/VEmotionNet/models/resnet50_face_bn_dag.pth')
-        #new_model_removed = torch.nn.Sequential(*list(model_ft.children())[:-1])
-        #new_model_removed.add_module('fc', torch.nn.Linear(2048, num_classes))
-        #self.net = model_ft
-
-        # self.features_net = sphere20a(feature=True)
-        # self.features_net.load_state_dict(torch.load('/home/mdomrachev/Data/STML_projects/pytorch/VEmotionNet/models/sphere20a_20171020.pth'))
-        # for param in self.features_net.parameters():
-        #    param.requires_grad = True
-        
-        #self.init = 512
-        #self.layer1 = 512
-        #self.layer2 = 512
-
-        #module = nn.Sequential()
-        #module.add_module('linear1', nn.Linear(512, 512))
-        #module.add_module('relu1', nn.SELU())
-        #module.add_module('linear2', nn.Linear(512, 256))
-        #module.add_module('relu2', nn.SELU())
-        #module.add_module('output', nn.Linear(256, num_classes))
-
-        #module.add_module('LSTM1', nn.LSTM(self.init, self.layer1, 1, dropout= 0.2))
-        #module.add_module('pool', nn.AvgPool2d(1))
-        #module.add_module('output', nn.Linear(self.layer1, num_classes))
-
-        #self.net = module
+        # init by xavier
+        modules.apply(weights_init)
+        pretrained_net.fc = modules
+        self.net = FeatureExtractor(pretrained_net, emb_name)
 
 
-    def forward(self, data):
-        data = torch.squeeze(data)
-        # data = self.features_net.forward(data)
-        output = self.net(data)
-        return output 
-
+    def forward(self, x):
+        logit = self.net(x)
+        return logit
 
